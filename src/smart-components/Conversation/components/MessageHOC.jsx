@@ -38,6 +38,7 @@ export default function MessageHoc({
   toggleReaction,
   quoteMessage,
   setQuoteMessage,
+    showRecipients,
   renderCustomMessage,
   currentGroupChannel,
   handleScroll,
@@ -175,6 +176,7 @@ export default function MessageHoc({
         nicknamesMap={membersMap}
         emojiContainer={emojiContainer}
         showEdit={setShowEdit}
+        showRecipients={showRecipients}
         showRemove={setShowRemove}
         showFileViewer={setShowFileViewer}
         resendMessage={resendMessage}

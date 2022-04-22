@@ -67,6 +67,7 @@ export const ConversationPanel = (props) => {
     renderChatItem,
     renderChatHeader,
     renderCustomMessage,
+    showRecipients,
     renderUserProfile,
     disableUserProfile,
     renderMessageInput,
@@ -380,6 +381,7 @@ export const ConversationPanel = (props) => {
               membersMap={nicknamesMap}
               editDisabled={utils.isDisabledBecauseFrozen(currentGroupChannel)}
               deleteMessage={deleteMessage}
+              showRecipients={showRecipients}
               updateMessage={updateMessage}
               resendMessage={resendMessage}
               toggleReaction={toggleReaction}

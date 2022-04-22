@@ -52,6 +52,7 @@ interface Props {
   emojiContainer?: EmojiContainer;
   scrollToMessage?: (createdAt: number, messageId: number) => void;
   showEdit?: (bool: boolean) => void;
+  showRecipients?: (bool: boolean) => void;
   showRemove?: (bool: boolean) => void;
   showFileViewer?: (bool: boolean) => void;
   resendMessage?: (message: UserMessage | FileMessage) => void;
@@ -72,6 +73,7 @@ export default function MessageContent({
   emojiContainer,
   scrollToMessage,
   showEdit,
+                                         showRecipients,
   showRemove,
   showFileViewer,
   resendMessage,
@@ -302,6 +304,7 @@ export default function MessageContent({
               replyType={replyType}
               disabled={disabled}
               showEdit={showEdit}
+              showRecipients={showRecipients}
               showRemove={showRemove}
               resendMessage={resendMessage}
               setQuoteMessage={setQuoteMessage}

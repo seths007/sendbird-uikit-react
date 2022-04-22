@@ -114,6 +114,7 @@ export default class ConversationScroll extends Component {
       emojiAllMap,
       editDisabled,
       deleteMessage,
+      showRecipients,
       updateMessage,
       resendMessage,
       renderCustomMessage,
@@ -222,6 +223,7 @@ export default class ConversationScroll extends Component {
                       chainBottom={chainBottom}
                       updateMessage={updateMessage}
                       deleteMessage={deleteMessage}
+                      showRecipients={showRecipients}
                       resendMessage={resendMessage}
                       toggleReaction={toggleReaction}
                       setQuoteMessage={setQuoteMessage}

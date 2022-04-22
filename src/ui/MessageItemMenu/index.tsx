@@ -24,6 +24,7 @@ interface Props {
   disabled?: boolean;
   replyType?: ReplyType;
   showEdit?: (bool: boolean) => void;
+  showRecipients?: (bool: boolean) => void;
   showRemove?: (bool: boolean) => void;
   resendMessage?: (message: UserMessage | FileMessage) => void;
   setQuoteMessage?: (message: UserMessage | FileMessage) => void;
@@ -48,12 +49,13 @@ export default function MessageItemMenu({
   const containerRef = useRef(null);
 
   const showMenuItemCopy: boolean = isUserMessage(message as UserMessage);
+  const showMenuItemShowRecipients: boolean = true;
   const showMenuItemReply: boolean = replyType === 'QUOTE_REPLY' && !isFailedMessage(channel, message) && !isPendingMessage(channel, message);
   const showMenuItemEdit: boolean = (isUserMessage(message as UserMessage) && isSentMessage(channel, message) && isByMe);
   const showMenuItemResend: boolean = (isFailedMessage(channel, message) && message?.isResendable?.() && isByMe);
   const showMenuItemDelete: boolean = !isPendingMessage(channel, message) && isByMe;
 
-  if (!(showMenuItemCopy || showMenuItemReply || showMenuItemEdit || showMenuItemResend || showMenuItemDelete)) {
+  if (!(showMenuItemCopy || showMenuItemReply || showMenuItemShowRecipients|| showMenuItemEdit || showMenuItemResend || showMenuItemDelete)) {
     return null;
   }
   return (
@@ -103,6 +105,17 @@ export default function MessageItemMenu({
                   className="sendbird-message-item-menu__list__menu-item menu-item-copy"
                   onClick={() => {
                     copyToClipboard((message as UserMessage)?.message);
+                    closeDropdown();
+                  }}
+                >
+                  {stringSet.MESSAGE_MENU__COPY}
+                </MenuItem>
+              )}
+              {showMenuItemShowRecipients && (
+                <MenuItem
+                  className="sendbird-message-item-menu__list__menu-item menu-item-copy"
+                  onClick={() => {
+                    showRecipients(true);
                     closeDropdown();
                   }}
                 >
