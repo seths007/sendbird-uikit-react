@@ -1,14 +1,14 @@
-import { e as _toConsumableArray, a as _objectSpread2, u as uuidv4, b as _slicedToArray, c as LocalizationContext, f as _defineProperty, h as _inherits, i as _createSuper, j as _createClass, k as _classCallCheck, l as _assertThisInitialized, w as withSendbirdContext } from './LocalizationContext-29fe03c8.js';
+import { e as _toConsumableArray, a as _objectSpread2, u as uuidv4, b as _slicedToArray, c as LocalizationContext, f as _defineProperty, h as _inherits, i as _createSuper, j as _createClass, k as _classCallCheck, l as _assertThisInitialized, w as withSendbirdContext } from './LocalizationContext-0e82b551.js';
 import React__default, { useEffect, useCallback, useRef, useMemo, useContext, useState, useLayoutEffect, Component, useReducer } from 'react';
 import PropTypes from 'prop-types';
-import { f as format, i as isSameDay } from './index-45c4ee4c.js';
-import { k as SEND_USER_MESSAGE, S as SEND_MESSAGE_START, l as SEND_FILE_MESSAGE, j as UPDATE_USER_MESSAGE, D as DELETE_MESSAGE, E as EmojiListItems, C as ContextMenu, I as IconButton, b as MenuItems, c as MenuItem, a as TextButton, U as UserProfileContext, f as ConnectedUserProfile, M as Modal, d as ButtonTypes, h as UserProfileProvider } from './index-bb0f91ce.js';
-import { a as getOutgoingMessageStates, b as getSendingMessageStatus, c as filterMessageListParams, d as getOutgoingMessageState, e as isSentStatus, h as isUserMessage, j as isFailedMessage, k as isPendingMessage, l as isSentMessage, m as getClassName, n as copyToClipboard, o as getEmojiListAll, p as getEmojiMapAll, q as isReactedBy, r as getEmojiTooltipString, s as isEditedMessage, u as getUIKitFileType, t as truncateString, v as isVideoMessage, w as isGifMessage, x as isUrl, y as getUIKitFileTypes, z as isThumbnailMessage, A as isVideo, B as isGif, C as isFileMessage, D as isSupportedFileView, E as getUIKitMessageTypes, F as getSenderName, G as isTextMessage, H as isOGMessage, I as getUIKitMessageType, J as isImageMessage, K as isAudioMessage } from './index-5069fe49.js';
-import { c as compareIds, L as LinkLabel, D as DateSeparator, M as MessageInput, F as FileViewer } from './index-4b438516.js';
-import { h as ImageRenderer, I as Icon, c as IconTypes, d as IconColors, e as Loader, L as Label, a as LabelTypography, b as LabelColors, A as Avatar, P as PlaceHolder, i as PlaceHolderTypes, g as LabelStringSet } from './index-02e562d6.js';
-import { C as ChannelAvatar } from './index-1c2cc73e.js';
+import { f as format, i as isSameDay } from './index-898abb6d.js';
+import { k as SEND_USER_MESSAGE, S as SEND_MESSAGE_START, l as SEND_FILE_MESSAGE, j as UPDATE_USER_MESSAGE, D as DELETE_MESSAGE, E as EmojiListItems, C as ContextMenu, I as IconButton, b as MenuItems, c as MenuItem, a as TextButton, U as UserProfileContext, f as ConnectedUserProfile, M as Modal, d as ButtonTypes, h as UserProfileProvider } from './index-dfbb11ab.js';
+import { a as getOutgoingMessageStates, b as getSendingMessageStatus, c as filterMessageListParams, d as getOutgoingMessageState, e as isSentStatus, h as isUserMessage, j as isFailedMessage, k as isPendingMessage, l as isSentMessage, m as getClassName, n as copyToClipboard, o as getEmojiListAll, p as getEmojiMapAll, q as isReactedBy, r as getEmojiTooltipString, s as isEditedMessage, u as getUIKitFileType, t as truncateString, v as isVideoMessage, w as isGifMessage, x as isUrl, y as getUIKitFileTypes, z as isThumbnailMessage, A as isVideo, B as isGif, C as isFileMessage, D as isSupportedFileView, E as getUIKitMessageTypes, F as getSenderName, G as isTextMessage, H as isOGMessage, I as getUIKitMessageType, J as isImageMessage, K as isAudioMessage } from './index-a3fd6e3b.js';
+import { c as compareIds, L as LinkLabel, D as DateSeparator, M as MessageInput, F as FileViewer } from './index-56e1e85e.js';
+import { h as ImageRenderer, I as Icon, c as IconTypes, d as IconColors, e as Loader, L as Label, a as LabelTypography, b as LabelColors, A as Avatar, P as PlaceHolder, i as PlaceHolderTypes, g as LabelStringSet } from './index-5a679923.js';
+import { C as ChannelAvatar } from './index-a91ba33b.js';
 import 'react-dom';
-import './utils-2d1635b3.js';
+import './utils-c3657459.js';
 
 var RESET_MESSAGES = 'RESET_MESSAGES';
 var RESET_STATE = 'RESET_STATE';
@@ -2056,7 +2056,7 @@ function MessageItemMenu(_a) {
           showRecipients(true);
           closeDropdown();
         }
-      }, stringSet.MESSAGE_MENU__COPY), showMenuItemReply && /*#__PURE__*/React__default.createElement(MenuItem, {
+      }, stringSet.MESSAGE_MENU_SHOW), showMenuItemReply && /*#__PURE__*/React__default.createElement(MenuItem, {
         className: "sendbird-message-item-menu__list__menu-item menu-item-reply",
         onClick: function onClick() {
           setQuoteMessage(message);
@@ -2888,6 +2888,7 @@ function MessageContent(_a) {
     replyType: replyType,
     disabled: disabled,
     showEdit: showEdit,
+    showRecipients: showRecipients,
     showRemove: showRemove,
     resendMessage: resendMessage,
     setQuoteMessage: setQuoteMessage,
@@ -3244,6 +3245,7 @@ MessageHoc.propTypes = {
   animatedMessageId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   highLightedMessageId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   renderCustomMessage: PropTypes.func,
+  showRecipients: PropTypes.func,
   currentGroupChannel: PropTypes.shape({}),
   hasSeparator: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -3276,6 +3278,7 @@ MessageHoc.defaultProps = {
   userId: '',
   editDisabled: false,
   renderCustomMessage: null,
+  showRecipients: null,
   currentGroupChannel: {},
   message: {},
   hasSeparator: false,
@@ -3563,6 +3566,7 @@ ConversationScroll.propTypes = {
   animatedMessageId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   highLightedMessageId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   renderChatItem: PropTypes.func,
+  showRecipients: PropTypes.func,
   renderCustomMessage: PropTypes.func,
   scrollToMessage: PropTypes.func,
   useReaction: PropTypes.bool,
@@ -3584,6 +3588,7 @@ ConversationScroll.defaultProps = {
   disabled: false,
   userId: '',
   renderCustomMessage: null,
+  showRecipients: null,
   renderChatItem: null,
   animatedMessageId: null,
   highLightedMessageId: null,

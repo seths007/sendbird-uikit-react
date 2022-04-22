@@ -2,17 +2,17 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var LocalizationContext = require('./LocalizationContext-15d69888.js');
+var LocalizationContext = require('./LocalizationContext-f72f5447.js');
 var React = require('react');
 var PropTypes = require('prop-types');
-var index$2 = require('./index-6d950a7d.js');
-var index$1 = require('./index-10768542.js');
-var index = require('./index-b4728378.js');
-var index$3 = require('./index-ec2f5cf6.js');
-var index$4 = require('./index-d4cb3bef.js');
-var index$5 = require('./index-a57fa7f9.js');
+var index$2 = require('./index-24529b58.js');
+var index$1 = require('./index-4be84bb7.js');
+var index = require('./index-2ab9a6e4.js');
+var index$3 = require('./index-3d03d0b4.js');
+var index$4 = require('./index-41eeb85e.js');
+var index$5 = require('./index-3f1c5c7f.js');
 require('react-dom');
-require('./utils-1fbbe334.js');
+require('./utils-3255d4ad.js');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -2065,7 +2065,7 @@ function MessageItemMenu(_a) {
           showRecipients(true);
           closeDropdown();
         }
-      }, stringSet.MESSAGE_MENU__COPY), showMenuItemReply && /*#__PURE__*/React__default["default"].createElement(index$1.MenuItem, {
+      }, stringSet.MESSAGE_MENU_SHOW), showMenuItemReply && /*#__PURE__*/React__default["default"].createElement(index$1.MenuItem, {
         className: "sendbird-message-item-menu__list__menu-item menu-item-reply",
         onClick: function onClick() {
           setQuoteMessage(message);
@@ -2897,6 +2897,7 @@ function MessageContent(_a) {
     replyType: replyType,
     disabled: disabled,
     showEdit: showEdit,
+    showRecipients: showRecipients,
     showRemove: showRemove,
     resendMessage: resendMessage,
     setQuoteMessage: setQuoteMessage,
@@ -3253,6 +3254,7 @@ MessageHoc.propTypes = {
   animatedMessageId: PropTypes__default["default"].oneOfType([PropTypes__default["default"].string, PropTypes__default["default"].number]),
   highLightedMessageId: PropTypes__default["default"].oneOfType([PropTypes__default["default"].string, PropTypes__default["default"].number]),
   renderCustomMessage: PropTypes__default["default"].func,
+  showRecipients: PropTypes__default["default"].func,
   currentGroupChannel: PropTypes__default["default"].shape({}),
   hasSeparator: PropTypes__default["default"].bool,
   disabled: PropTypes__default["default"].bool,
@@ -3285,6 +3287,7 @@ MessageHoc.defaultProps = {
   userId: '',
   editDisabled: false,
   renderCustomMessage: null,
+  showRecipients: null,
   currentGroupChannel: {},
   message: {},
   hasSeparator: false,
@@ -3572,6 +3575,7 @@ ConversationScroll.propTypes = {
   animatedMessageId: PropTypes__default["default"].oneOfType([PropTypes__default["default"].string, PropTypes__default["default"].number]),
   highLightedMessageId: PropTypes__default["default"].oneOfType([PropTypes__default["default"].string, PropTypes__default["default"].number]),
   renderChatItem: PropTypes__default["default"].func,
+  showRecipients: PropTypes__default["default"].func,
   renderCustomMessage: PropTypes__default["default"].func,
   scrollToMessage: PropTypes__default["default"].func,
   useReaction: PropTypes__default["default"].bool,
@@ -3593,6 +3597,7 @@ ConversationScroll.defaultProps = {
   disabled: false,
   userId: '',
   renderCustomMessage: null,
+  showRecipients: null,
   renderChatItem: null,
   animatedMessageId: null,
   highLightedMessageId: null,

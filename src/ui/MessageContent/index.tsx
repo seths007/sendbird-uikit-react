@@ -150,6 +150,7 @@ export default function MessageContent({
               replyType={replyType}
               disabled={disabled}
               showEdit={showEdit}
+              showRecipients={showRecipients}
               showRemove={showRemove}
               resendMessage={resendMessage}
               setQuoteMessage={setQuoteMessage}
