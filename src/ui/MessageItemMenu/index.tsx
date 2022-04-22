@@ -39,6 +39,7 @@ export default function MessageItemMenu({
   disabled = false,
   replyType,
   showEdit,
+                                          showRecipients,
   showRemove,
   resendMessage,
   setQuoteMessage,
