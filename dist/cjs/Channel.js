@@ -2,17 +2,17 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var LocalizationContext = require('./LocalizationContext-46c00ec5.js');
+var LocalizationContext = require('./LocalizationContext-e2abb10e.js');
 var React = require('react');
 var PropTypes = require('prop-types');
-var index$2 = require('./index-72dd8ef7.js');
-var index$1 = require('./index-cd289e3b.js');
-var index = require('./index-47f065df.js');
-var index$3 = require('./index-9901bb9e.js');
-var index$4 = require('./index-67d538e5.js');
-var index$5 = require('./index-f0df6b31.js');
+var index$2 = require('./index-09e4a4ce.js');
+var index$1 = require('./index-a46ba8ce.js');
+var index = require('./index-f3613a4b.js');
+var index$3 = require('./index-5521ea3e.js');
+var index$4 = require('./index-95d276d8.js');
+var index$5 = require('./index-f9255d3e.js');
 require('react-dom');
-require('./utils-10bf3bc2.js');
+require('./utils-3b577f7b.js');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -1993,6 +1993,7 @@ function MessageItemMenu(_a) {
       disabled = _d === void 0 ? false : _d,
       replyType = _a.replyType,
       showEdit = _a.showEdit,
+      showRecipients = _a.showRecipients,
       showRemove = _a.showRemove,
       resendMessage = _a.resendMessage,
       setQuoteMessage = _a.setQuoteMessage,
@@ -2064,7 +2065,7 @@ function MessageItemMenu(_a) {
           showRecipients(true);
           closeDropdown();
         }
-      }, stringSet.MESSAGE_MENU__COPY), showMenuItemReply && /*#__PURE__*/React__default["default"].createElement(index$1.MenuItem, {
+      }, stringSet.MESSAGE_MENU_SHOW), showMenuItemReply && /*#__PURE__*/React__default["default"].createElement(index$1.MenuItem, {
         className: "sendbird-message-item-menu__list__menu-item menu-item-reply",
         onClick: function onClick() {
           setQuoteMessage(message);
@@ -4506,6 +4507,7 @@ ConversationPanel.propTypes = {
   onBeforeUpdateUserMessage: PropTypes__default["default"].func,
   renderChatItem: PropTypes__default["default"].oneOfType([PropTypes__default["default"].element, PropTypes__default["default"].func]),
   renderCustomMessage: PropTypes__default["default"].func,
+  showRecipients: PropTypes__default["default"].func,
   renderMessageInput: PropTypes__default["default"].oneOfType([PropTypes__default["default"].element, PropTypes__default["default"].func]),
   renderChatHeader: PropTypes__default["default"].oneOfType([PropTypes__default["default"].element, PropTypes__default["default"].func]),
   showSearchIcon: PropTypes__default["default"].bool,
@@ -4529,6 +4531,7 @@ ConversationPanel.defaultProps = {
   renderCustomMessage: null,
   renderMessageInput: null,
   renderChatHeader: null,
+  showRecipients: null,
   useReaction: true,
   replyType: 'NONE',
   showSearchIcon: false,

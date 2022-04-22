@@ -39,6 +39,7 @@ export default function MessageItemMenu({
   disabled = false,
   replyType,
   showEdit,
+                                          showRecipients,
   showRemove,
   resendMessage,
   setQuoteMessage,
@@ -119,7 +120,7 @@ export default function MessageItemMenu({
                     closeDropdown();
                   }}
                 >
-                  {stringSet.MESSAGE_MENU__COPY}
+                  {stringSet.MESSAGE_MENU_SHOW}
                 </MenuItem>
               )}
               {showMenuItemReply && (

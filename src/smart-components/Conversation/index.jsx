@@ -506,6 +506,7 @@ ConversationPanel.propTypes = {
     PropTypes.func,
   ]),
   renderCustomMessage: PropTypes.func,
+  showRecipients: PropTypes.func,
   renderMessageInput: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.func,
@@ -536,6 +537,7 @@ ConversationPanel.defaultProps = {
   renderCustomMessage: null,
   renderMessageInput: null,
   renderChatHeader: null,
+  showRecipients: null,
   useReaction: true,
   replyType: 'NONE',
   showSearchIcon: false,
